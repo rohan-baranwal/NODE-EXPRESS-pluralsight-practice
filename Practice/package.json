@@ -1,0 +1,14 @@
+{
+  "name": "pluralsight-node-express-practice",
+  "version": "1.0.0",
+  "description": "Node and Express.js practice",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Rohan Baranwal",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
