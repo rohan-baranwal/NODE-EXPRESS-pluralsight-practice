@@ -5,6 +5,7 @@ import morgan from "morgan";
 import path from "path";
 import { fileURLToPath } from "url";
 
+const PORT = process.env.PORT || 3000;
 const debugApp = debug("app");
 const app = express();
 // const __filename = fileURLToPath(import.meta.url);
@@ -19,5 +20,5 @@ app.get("/", (req, res) => {
 });
 
 app.listen(3000, () => {
-  debugApp(`Listening on port ${chalk.green("3000")}`);
+  debugApp(`Listening on port ${chalk.green(PORT)}`);
 });
