@@ -26,5 +26,8 @@
     "env": {
       "PORT": 4000
     }
+  },
+  "devDependencies": {
+    "gulp": "^4.0.2"
   }
 }
