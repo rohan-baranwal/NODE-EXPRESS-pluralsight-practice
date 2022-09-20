@@ -4,19 +4,13 @@ import debugApp from "debug";
 const debug = debugApp("app");
 import morgan from "morgan";
 import path, {dirname} from "path";
-// const express = require('express');
-// const chalk = require('chalk');
-// const debug = require('debug')('app');
-// const morgan = require('morgan');
-// const path = require('path');
-import { fileURLToPath } from "url";
 
 const PORT = process.env.PORT || 3000;
 const app = express();
 import sessionsRouter from "./src/routers/sessionsRouter.js";
-// const sessionsRouter = require("./src/routers/sessionsRouter");
 
-
+// To take care of __dirname & __filename not defined
+import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 

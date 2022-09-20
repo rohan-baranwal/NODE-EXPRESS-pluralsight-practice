@@ -1,7 +1,5 @@
 import express from "express";
 import sessions from "../data/sessions.json" assert { type: "json" };
-// const express = require('express');
-// const sessions = require('../data/sessions.json');
 
 const sessionsRouter = express.Router();
 
