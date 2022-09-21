@@ -7,11 +7,28 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Launch Program",
-      "skipFiles": [
-        "<node_internals>/**"
-      ],
+      "name": "Node Launch",
+      "skipFiles": ["<node_internals>/**"],
       "program": "${workspaceFolder}\\app.js"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Node: Nodemon",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["debug"],
+      "outputCapture": "std"
+    },
+    {
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "name": "nodemon",
+      "program": "${workspaceFolder}/app.js",
+      "request": "launch",
+      "restart": true,
+      "runtimeExecutable": "nodemon",
+      "skipFiles": ["<node_internals>/**"],
+      "type": "node"
     }
   ]
 }
