@@ -15,12 +15,15 @@
   "license": "ISC",
   "dependencies": {
     "chalk": "^5.0.1",
+    "cookie-parser": "^1.4.6",
     "debug": "^4.3.4",
     "ejs": "^3.1.8",
     "express": "^4.18.1",
+    "express-session": "^1.17.3",
     "mongodb": "^4.10.0",
     "morgan": "^1.10.0",
-    "nodemon": "^2.0.19"
+    "nodemon": "^2.0.19",
+    "passport": "^0.6.0"
   },
   "nodemonConfig": {
     "restartable": "rs",
