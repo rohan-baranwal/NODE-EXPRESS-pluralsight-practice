@@ -4,6 +4,9 @@ import debugApp from "debug";
 const debug = debugApp("app");
 import morgan from "morgan";
 import path, { dirname } from "path";
+import passport from "passport";
+import session from "express-session";
+import coookieParser from "cookie-parser";
 // import { hi } from "./testFile.js";
 
 const PORT = process.env.PORT || 3000;
@@ -23,6 +26,8 @@ app.use(morgan("tiny"));
 app.use(express.static(path.join(__dirname, "/public/")));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(coookieParser())
+app.use(session({secret:'globo'}))
 
 app.set("views", "./src/views");
 app.set("view engine", "ejs");
