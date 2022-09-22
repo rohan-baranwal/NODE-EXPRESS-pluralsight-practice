@@ -1,8 +1,7 @@
 import express from "express";
-import sessions from "../data/sessions.json" assert { type: "json" };
 import debugApp from "debug";
 const debug = debugApp("app:sessionsRouter");
-import mongodb, { ObjectId } from "mongodb";
+import mongodb from "mongodb";
 
 const sessionsRouter = express.Router();
 
