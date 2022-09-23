@@ -26,8 +26,11 @@ app.use(morgan("tiny"));
 app.use(express.static(path.join(__dirname, "/public/")));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(coookieParser())
-app.use(session({secret:'globo'}))
+app.use(coookieParser());
+app.use(session({ secret: "globo" }));
+
+import passportConfig from "./src/config/passport.js";
+passportConfig(app);
 
 app.set("views", "./src/views");
 app.set("view engine", "ejs");
