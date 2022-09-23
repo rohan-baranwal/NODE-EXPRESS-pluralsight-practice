@@ -6,8 +6,14 @@ import mongodb from "mongodb";
 const authRouter = express.Router();
 
 authRouter.route('/signUp').post((req, res) => {
-  const body = req.body;
-  res.json(body);
+  // TODO create user
+  req.login(req.body, () => {
+    res.redirect('/auth/profile');
+  })
+})
+
+authRouter.route('/profile').get((req, res) => {
+  res.json(req.user)
 })
 
 export default authRouter;
