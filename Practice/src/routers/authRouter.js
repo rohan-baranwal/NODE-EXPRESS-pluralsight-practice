@@ -2,6 +2,7 @@ import express from "express";
 import debugApp from "debug";
 const debug = debugApp("app:authRouter");
 import mongodb from "mongodb";
+import passport from "passport";
 
 const authRouter = express.Router();
 
@@ -31,6 +32,18 @@ authRouter.route("/signUp").post((req, res) => {
     client.close();
   })();
 });
+
+authRouter
+  .route("/signIn")
+  .get((req, res) => {
+    res.render("signin");
+  })
+  .post(
+    passport.authenticate("local", {
+      successRedirect: "/auth/profile",
+      failureRedirect: "/",
+    })
+  );
 
 authRouter.route("/profile").get((req, res) => {
   res.json(req.user);
