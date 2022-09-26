@@ -3,13 +3,14 @@ import debugApp from "debug";
 const debug = debugApp("app:authRouter");
 import mongodb from "mongodb";
 import passport from "passport";
+import { AppConfig } from "../appconfig";
 
 const authRouter = express.Router();
 
 authRouter.route("/signUp").post((req, res) => {
   const { username, password } = req.body;
   const url =
-    "mongodb+srv://glo-user-01:glo-user-01@cluster-globomatics.paf2yjm.mongodb.net/?retryWrites=true&w=majority";
+    AppConfig.CONNECTION_STRING;
   const dbName = "db-globomatics";
 
   (async function mongo() {
