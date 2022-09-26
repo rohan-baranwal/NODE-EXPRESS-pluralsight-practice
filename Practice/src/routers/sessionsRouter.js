@@ -3,6 +3,7 @@ import debugApp from "debug";
 const debug = debugApp("app:sessionsRouter");
 import mongodb from "mongodb";
 import { AppConfig } from "../appconfig";
+import speakerService from "../services/speakerService";
 
 const sessionsRouter = express.Router();
 
@@ -50,6 +51,8 @@ sessionsRouter.route("/:id").get((req, res) => {
         .collection("sessions")
         .findOne({ _id: new mongodb.ObjectId(req.params.id) });
 
+      const speaker = await speakerService.getSpeakerById(session.speakers[0].id);
+      session.speaker = speaker.data;
       res.render("session", {
         session,
       });
