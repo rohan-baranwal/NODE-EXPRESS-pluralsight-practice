@@ -2,6 +2,7 @@ import express from "express";
 import debugApp from "debug";
 const debug = debugApp("app:sessionsRouter");
 import mongodb from "mongodb";
+import { AppConfig } from "../appconfig";
 
 const sessionsRouter = express.Router();
 
@@ -14,8 +15,7 @@ sessionsRouter.use((req, res, next) => {
 });
 
 sessionsRouter.route("/").get((req, res) => {
-  const url =
-    "mongodb+srv://glo-user-01:glo-user-01@cluster-globomatics.paf2yjm.mongodb.net/?retryWrites=true&w=majority";
+  const url = AppConfig.CONNECTION_STRING;
   const dbName = "db-globomatics";
 
   (async function mongo() {
@@ -36,8 +36,7 @@ sessionsRouter.route("/").get((req, res) => {
 });
 
 sessionsRouter.route("/:id").get((req, res) => {
-  const url =
-    "mongodb+srv://glo-user-01:glo-user-01@cluster-globomatics.paf2yjm.mongodb.net/?retryWrites=true&w=majority";
+  const url = AppConfig.CONNECTION_STRING;
   const dbName = "db-globomatics";
 
   (async function mongo() {

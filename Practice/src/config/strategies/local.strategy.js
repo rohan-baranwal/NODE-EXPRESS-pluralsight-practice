@@ -3,6 +3,7 @@ const debug = debugApp("app:localStrategy");
 import passport from "passport";
 import mongodb from "mongodb";
 import { Strategy } from "passport-local";
+import { AppConfig } from "../../appconfig";
 
 const localStrategy = () => {
   passport.use(
@@ -13,7 +14,7 @@ const localStrategy = () => {
       },
       (username, password, done) => {
         const url =
-          "mongodb+srv://glo-user-01:glo-user-01@cluster-globomatics.paf2yjm.mongodb.net/?retryWrites=true&w=majority";
+          AppConfig.CONNECTION_STRING;
         const dbName = "db-globomatics";
 
         (async function validateUser() {
