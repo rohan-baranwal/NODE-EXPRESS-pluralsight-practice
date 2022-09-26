@@ -5,6 +5,14 @@ import mongodb from "mongodb";
 
 const sessionsRouter = express.Router();
 
+sessionsRouter.use((req, res, next) => {
+  if (req.user) {
+    next();
+  } else {
+    res.redirect("/auth/signIn");
+  }
+});
+
 sessionsRouter.route("/").get((req, res) => {
   const url =
     "mongodb+srv://glo-user-01:glo-user-01@cluster-globomatics.paf2yjm.mongodb.net/?retryWrites=true&w=majority";
