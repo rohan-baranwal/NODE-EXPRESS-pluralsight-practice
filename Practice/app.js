@@ -7,7 +7,6 @@ import path, { dirname } from "path";
 import passport from "passport";
 import session from "express-session";
 import coookieParser from "cookie-parser";
-// import { hi } from "./testFile.js";
 
 const PORT = process.env.PORT || 3000;
 const app = express();
@@ -19,8 +18,6 @@ import { fileURLToPath } from "url";
 import authRouter from "./src/routers/authRouter.js";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-
-// console.log(hi());
 
 app.use(morgan("tiny"));
 app.use(express.static(path.join(__dirname, "/public/")));
