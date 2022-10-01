@@ -32,6 +32,8 @@ sessionsRouter.route("/").get((req, res) => {
       });
     } catch (error) {
       debug(error.stack);
+    } finally {
+      client.close();
     }
   })();
 });
@@ -58,6 +60,8 @@ sessionsRouter.route("/:id").get((req, res) => {
       });
     } catch (error) {
       debug(error.stack);
+    } finally {
+      client.close();
     }
   })();
 });
