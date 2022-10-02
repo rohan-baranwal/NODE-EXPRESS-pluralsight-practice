@@ -22,6 +22,8 @@ adminRouter.route("/").get((req, res) => {
       res.json(response);
     } catch (error) {
       debug(error.stack);
+    } finally {
+      client.close();
     }
   })();
 });
